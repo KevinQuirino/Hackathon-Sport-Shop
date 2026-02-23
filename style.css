@@ -1,0 +1,628 @@
+/* ===== PALETA ===== */
+:root {
+    --azul: #118AB2;
+    --verde: #06D6A0;
+    --negro: #202020;
+    --gris: #F0F4F8;
+}
+
+/* ===== HEADER ===== */
+header.navbar {
+    background-color: var(--negro);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-brand {
+    color: var(--verde) !important;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: var(--gris) !important;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--verde) !important;
+}
+.btn-outline-light {
+    border-color: var(--verde);
+    color: var(--verde);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--verde);
+    border-color: var(--verde);
+    color: var(--negro); /* Texto negro sobre el fondo verde */
+}
+
+/* Estilo del contador del carrito (badge) */
+#cartCount {
+    /* El badge debe ser de tu color de acento o un color que contraste bien (ej. rojo para urgencia) */
+    background-color: #dc3545 !important; /* Rojo de Bootstrap */
+    border: 1px solid var(--dark-bg); /* Pequeño borde oscuro */
+}
+/* Estilos generales para el Hero */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Opcional: Altura de toda la ventana visible */
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+    overflow: hidden;
+    /* Asegura que la imagen no se desborde */
+}
+
+/* Fondo (Imagen) */
+.hero-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    z-index: 1;
+    /* Coloca el fondo detrás del contenido */
+    transform: translate(-50%, -50%);
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+}
+
+/* Capa Oscura (Overlay) para asegurar que el texto blanco sea legible */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Negro con 40% de opacidad */
+}
+
+/* Contenido (Texto y Botón) */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Coloca el contenido sobre el fondo */
+    color: white;
+    /* Color de texto para que contraste con el fondo oscuro */
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3.5em;
+    /* Tamaño grande para el título principal */
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    /* Tipografía muy audaz, ideal para deporte */
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 2em;
+    font-weight: 300;
+}
+
+/* Botón CTA (Llamada a la Acción) */
+.hero-cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #118AB2;
+    /* Azul de baloncesto */
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.hero-cta-button:hover {
+    background-color: #06D6A0;
+    /* Cambio de color cuando pasas el mouse*/
+}
+
+/* Estilos para que sea responsivo*/
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
+    }
+}
+
+.hero-title {
+    /* ... estilos existentes ... */
+    opacity: 0;
+    /* Empieza invisible */
+    animation: fadeInSlide 0.8s ease-out forwards;
+    /* Aplica animación al título */
+    animation-delay: 0.2s;
+    /* Retrasa un poco el inicio */
+}
+
+.hero-subtitle {
+    /* ... estilos existentes ... */
+    opacity: 0;
+    /* Empieza invisible */
+    animation: fadeInSlide 0.8s ease-out forwards;
+    /* Aplica animación al subtítulo */
+    animation-delay: 0.5s;
+    /* Retrasa más para que aparezca después del título */
+}
+
+.hero-cta-button {
+    /* ... estilos existentes ... */
+    opacity: 0;
+    /* Empieza invisible */
+    animation: fadeInSlide 2s ease-out forwards;
+    /* Aplica animación al botón */
+    animation-delay: 0.8s;
+    /* Retrasa más para ser el último en aparecer */
+}
+
+/* 1. Definición de la animación de entrada */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Empieza 20px más abajo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    /*Estilo para el body / fondo de la página*/
+    /* Color de fondo */
+    background-color: var(--negro);
+    /* Asegúrate de que no haya márgenes no deseados */
+    margin: 0;
+    padding: 0;
+}
+
+/* Sección General del Carrusel */
+/* ======== CARRUSEL ======== */
+
+/* Sección General */
+.carousel-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #222;
+}
+
+.carousel-section h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3.2em;
+    margin-bottom: 40px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contenedor principal */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background: black;
+}
+
+/* Pista de slides */
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Cada slide individual */
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+.carousel-slide img {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+}
+
+.slide-info {
+    width: 40%;
+    padding: 40px;
+    text-align: left;
+}
+
+.slide-info h3 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.slide-info p {
+    font-family: 'chakra petch', sans-serif;
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.slide-cta {
+    font-family: 'chakra petch', sans-serif;
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #118AB2;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.slide-cta:hover {
+    background-color: #118AB2;
+}
+
+/* Flechas */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.8em;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+/* Puntos indicadores */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.carousel-dots button {
+    font-family: 'chakra petch', sans-serif;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: #bbb;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-dots button.active {
+    background: #118AB2;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+.carousel-slide {
+    flex-direction: column;
+}
+
+.carousel-slide img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.slide-info {
+    width: 100%;
+    text-align: center;
+}
+}
+
+/* El botón CTA: lo más importante, usaremos el color de acento (#06D6A0) */
+.btn-carrito {
+    background-color: #06D6A0;
+    /* Verde/Menta vibrante para el CTA */
+    color: #202020;
+    /* Texto oscuro para asegurar contraste en el CTA */
+    border: none;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(6, 214, 160, 0.4);
+    /* Sombra para resaltar */
+}
+
+.btn-carrito:hover {
+    background-color: #118AB2;
+    /* Nuevo color azul en el hover */
+    color: #F0F4F8;
+    /* Texto claro en el hover */
+    box-shadow: 0 4px 15px rgba(17, 138, 178, 0.4);
+}
+
+.card {
+    /* Un fondo un poco más claro que el body para diferenciar las tarjetas */
+    background-color: #333333;
+    color: #F0F4F8;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    /* Transición suave para el hover */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    /* Pequeño levantamiento al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para los indicadores del carrusel (los puntos) */
+.carousel-indicators {
+    /* Mueve los indicadores 40px hacia abajo desde su posición original (bottom: 0) */
+    /* Ajusta este valor (40px) para subirlo o bajarlo más */
+    bottom: -50px;
+
+    /* Opcional: Esto ayuda a que el fondo oscuro no interfiera */
+    padding-bottom: 20px;
+}
+
+#shop h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    /* Peso audaz */
+    color: #F0F4F8;
+    /* Color de texto blanco suave */
+    text-transform: uppercase;
+}
+
+/* Ajustar el espacio inferior de la sección para compensar */
+#shop>.container {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.carousel-control-prev {
+    /* Mueve la flecha de la izquierda hacia afuera del contenedor */
+    left: -90px;
+    /* Ajusta este valor (-50px) para moverlo más o menos a la izquierda */
+
+    /* Asegura el centrado vertical */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-next {
+    /* Mueve la flecha de la derecha hacia afuera del contenedor */
+    right: -90px;
+    /* Ajusta este valor (-50px) para moverlo más o menos a la derecha */
+
+    /* Asegura el centrado vertical */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.toast-header {
+    background-color: #333333;
+    /* Color oscuro similar al de tus tarjetas */
+    color: #F0F4F8;
+    /* Color de texto claro */
+    border-bottom: 1px solid #118AB2;
+    /* Línea de acento azul */
+}
+
+/* Color para el nombre de la marca en el encabezado del toast */
+.toast-header .text-primary {
+    color: #118AB2 !important;
+    /* El color de tu marca */
+    font-weight: 700;
+}
+
+/* Estilo para el cuerpo del toast */
+.toast-body {
+    background-color: #202020;
+    /* Color de fondo principal */
+    color: #F0F4F8;
+}
+
+/* Estilos para la sección de Entrenamiento y Potencial */
+#training {
+    background-color: var(--negro);
+    /* Fondo oscuro principal */
+    color: var(--gris);
+}
+
+#training h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--verde);
+    /* Título en color de acento */
+    text-transform: uppercase;
+}
+
+#training h4.card-title {
+    color: var(--azul);
+    font-weight: 700;
+}
+
+#training .card-text {
+    color: #b0b0b0;
+}
+
+/* Estilos para la sección de Entrenamiento y Potencial (ya estaban) */
+#training {
+    background-color: var(--negro);
+    color: var(--gris);
+}
+
+/* ... otros estilos de #training ... */
+
+/* Nuevo estilo para la caja del Newsletter dentro de la sección de entrenamiento */
+.newsletter-box {
+    background-color: #333333;
+    /* Un gris oscuro para destacar el recuadro */
+    border-radius: 8px;
+    max-width: 550px;
+    /* Ancho máximo para que no ocupe toda la pantalla */
+    margin-left: auto;
+    margin-right: auto;
+    /* Usar la paleta de colores del hero para el input */
+    border: 1px solid var(--azul);
+}
+
+.newsletter-box h4 {
+    color: var(--gris);
+    font-weight: 600;
+}
+
+/* Estilo del botón 'Únete' */
+#btn-newsletter-submit {
+    background-color: var(--verde);
+    /* Verde/Menta para el acento */
+    color: var(--negro);
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+#btn-newsletter-submit:hover {
+    background-color: #118AB2;
+}
+/* Estilos para la sección de contacto */
+.contact-section {
+    background-color: var(--negro);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    color: var(--gris);
+}
+
+/* Títulos de la sección */
+.contact-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--gris);
+    text-transform: uppercase;
+}
+
+/* Estilo para los campos del formulario */
+.contact-section .form-control {
+    background-color: #333333;
+    color: #F0F4F8;
+    border: 1px solid #118AB2;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-section .form-control:focus {
+    border-color: #06D6A0;
+    box-shadow: 0 0 5px rgba(6, 214, 160, 0.4);
+}
+
+.contact-section .form-control.valid {
+    border-color: #06D6A0;
+    box-shadow: 0 0 5px rgba(6, 214, 160, 0.4);
+}
+
+.contact-section .form-control.invalid {
+    border-color: #D9534F;
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.4);
+}
+
+/* Botón de envío */
+.contact-section .btn-carrito {
+    background-color: #06D6A0;
+    color: #202020;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 4px 15px rgba(6, 214, 160, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section .btn-carrito:hover {
+    background-color: #118AB2;
+    color: #F0F4F8;
+    box-shadow: 0 4px 15px rgba(17, 138, 178, 0.4);
+}
+
+/* Estilos para el mensaje de éxito */
+.success-message {
+    display: none;
+    background-color: #06D6A0;
+    color: #202020;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Animación del mensaje de éxito */
+@keyframes showMessage {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase que activa la animación */
+.success-message.show {
+    display: block;
+    animation: showMessage 0.6s forwards;
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
+    .contact-section h2 {
+        font-size: 2em;
+    }
+
+    .contact-section .form-control {
+        font-size: 1em;
+    }
+}
